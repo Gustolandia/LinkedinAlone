@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Nav, Navbar, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { Nav, Navbar, NavDropdown, Form, FormControl} from 'react-bootstrap';
 import './Navbar.css';
 import { FaLinkedin, FaHome, FaUser, FaSuitcase, FaCommentAlt, FaBell, FaVideo } from 'react-icons/fa';
 import { BsFillGrid3X3GapFill } from 'react-icons/bs'
@@ -10,7 +10,7 @@ class NavBar extends Component {
     render() {
         return (
 
-            <Navbar className="navbar-dark" bg="dark" expand="md" className='navBar' variant="dark">
+            <Navbar bg="dark" expand="md" className='navBar' variant="dark">
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <div className="navbar_logo_search">
@@ -23,13 +23,13 @@ class NavBar extends Component {
                 <div className="spacer">
                 </div>
 
-                <div className="navbar_icons">
+                <div className="navbar_icons" id="icons">
                     
                     <Nav className="icon-navigation">
-                        <Nav.Link className='text-navigation' href="#home">
+                        <Nav.Link className='text-navigation' href="/">
                             <FaHome size={18} />Home</Nav.Link>
 
-                        <Nav.Link className='text-navigation' href='#mynetwork'>
+                        <Nav.Link className='text-navigation' href='/'>
                             <FaUser size={18} />Network</Nav.Link>
 
                         <Nav.Link className='text-navigation'>
@@ -41,32 +41,31 @@ class NavBar extends Component {
                         <Nav.Link className='text-navigation'>
                             <FaBell size={18} />Notifications</Nav.Link>
 
-                        <Nav.Link className="text-navigation">
+                        <div className="text-navigation navbar-me" id="">
                             <div id="profile-pic-sm" className="profile-pic-sm">
                                 <img id="profile-pic-sm" src="https://image.shutterstock.com/image-vector/profile-blank-icon-empty-photo-260nw-535853269.jpg" alt="Profile pic" />
                             </div>
                             <NavDropdown className='text-navigation' title="Me" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">My</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                                <NavDropdown.Item href="/me">My</NavDropdown.Item>
+                                <NavDropdown.Item href="/">Another action</NavDropdown.Item>
+                                <NavDropdown.Item href="/">Something</NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                                <NavDropdown.Item href="/">Separated link</NavDropdown.Item>
                             </NavDropdown>
-                        </Nav.Link>
+                        </div>
 
-                        <div className="navbar-me"></div>
-
-                        <Nav.Link className="text-navigation">
-                            <BsFillGrid3X3GapFill size={18} /><NavDropdown title="Work" className='text-navigation' id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                        <div className="text-navigation">
+                            <BsFillGrid3X3GapFill size={18} />
+                            <NavDropdown title="Work" className='text-navigation' id="basic-nav-dropdown">
+                                <NavDropdown.Item href="/">Action</NavDropdown.Item>
+                                <NavDropdown.Item href="/">Another action</NavDropdown.Item>
+                                <NavDropdown.Item href="/">Something</NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                                <NavDropdown.Item href="/">Separated link</NavDropdown.Item>
                             </NavDropdown>
-                        </Nav.Link>
+                        </div>
 
-                        <Nav.Link className='text-navigation' href="#link">
+                        <Nav.Link className='text-navigation' href="/">
                             <FaVideo size={18} />Learning</Nav.Link>
                     </Nav>
                 </div>

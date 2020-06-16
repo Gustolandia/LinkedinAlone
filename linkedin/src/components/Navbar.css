@@ -40,17 +40,21 @@
     transition: 0.3s;
 }
 /*---------------SPACER--------------------*/
+
 .spacer {
     float: right;
     /* flex: 1; */
     width: 100%;
 }
+
 /*---------------SPACER--------------------*/
+
 
 .navbar_icons{
     display: flex;
     justify-content: space-between;
     margin: 10px 48px;
+    
 }
 #profile-pic-sm {
     position: relative;
@@ -73,10 +77,21 @@
     height: 3.7rem;
     color: rgb(199,209,216);
 }
-/* #navContent{
-    width: 2000px;
-} */
 
+
+@media only screen and (max-width: 768px) {
+    #basic-navbar-nav{
+        background-color: #dde7f0;
+    }
+    .text-navigation {
+        color: black !important;
+
+    }
+    #basic-nav-dropdown{
+        color: black;
+        padding: 0;
+    }
+  }
 
 
 

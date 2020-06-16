@@ -1,18 +1,21 @@
 import React, {Component} from "react";
-import {DropdownButton, Dropdown, Button} from "react-bootstrap";
+import {Button} from "react-bootstrap";
 import './Profile.css';
+import ExpSection from './Experience'
+
 
 
 class MainPage extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            username:this.props.username,
+            username:this.props.match.params.username,
             data:{},
         };
     }
 
     async componentDidMount() {
+
         let object=await fetch("https://striveschool.herokuapp.com/api/profile/"+this.state.username,{
             method: "GET",
             headers:{
@@ -25,9 +28,11 @@ class MainPage extends Component {
     
     
     render(){
-        console.log(this.state.data)
+        // console.log(this.state.data)
         return(
+            this.state.data!=null?
             <div className='my-3' id="mainPage">
+                
                 <section className="normalElement my-3 py-3">
                     <div id="bckDiv">
                         <img id='bckimage' alt='' src="https://miro.medium.com/max/1124/1*92adf06PCF91kCYu1nPLQg.jpeg"></img>
@@ -58,8 +63,12 @@ class MainPage extends Component {
                         <p className="m-0" style={{fontWeight:"normal"}} >{this.state.data.bio}</p>
                     </div>
                 </section>
+                <ExpSection username={this.state.username}/>
+                
             </div>
-              
+            :
+            <div id="errorMessage"><h1>Invalid Profile!</h1></div>
+            
                     
         )
     }

@@ -9,14 +9,19 @@ import Navbar from './components/Navbar'
 
 function App() {
   return (
+    <Router>
+
       <div className="App">
         <Navbar />
 
-        <MainPage username="user13" />
+        <Route path="/" exact render={(props) => <MainPage {...props} username={"user13"} />}/>
+        <Route path="/:username" exact exact component={MainPage} />
+
 
         <Footer/>
         
      </div>
+     </Router>
 );
 
 
