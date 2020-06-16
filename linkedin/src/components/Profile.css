@@ -16,11 +16,18 @@
     margin-right: 0px;
     display:inline-block;
 }
+
+.imageWrapperNet{
+    height:175px !important;
+    width:175px !important;
+    margin-left: auto;
+    margin-right: auto;
+}
 #editWrapper{
     display:inline-block;
     position: relative;
 }
-#profilePic{
+.profilePic{
     height:100%;
     width:100%;
     border-radius: 50%;
@@ -44,11 +51,25 @@
 #errorMessage{
     position: relative;
     top:50px;
-    height:400px;
+    height:600px;
     text-align: center;
     
 }
 #errorMessage h1{
     color: royalblue;
     line-height: 300px;
+}
+
+.netCards{
+    height:100%;
+    width: 100%;
+}
+
+.spinner-border{
+    width:100px;
+    height:100px;
+}
+.spinnerWrapper{
+    position:relative;
+    top:250px;
 }

@@ -5,23 +5,29 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
+import Network from './components/Network'
+
 
 
 function App() {
   return (
-    <Router>
+    <div className="App">
+      <Router>
 
-      <div className="App">
-        <Navbar />
+      
+          <Navbar />
 
-        <Route path="/" exact render={(props) => <MainPage {...props} username={"user13"} />}/>
-        <Route path="/:username" exact exact component={MainPage} />
+          <Route path="/" exact component={Network} />
+          <Route path="/network" exact component={Network} />
+
+          <Route path="/username/:username" exact component={MainPage} />
 
 
-        <Footer/>
+          <Footer/>
         
-     </div>
-     </Router>
+     
+      </Router>
+    </div>
 );
 
 

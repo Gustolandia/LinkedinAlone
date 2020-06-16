@@ -3,6 +3,8 @@ import { Nav, Navbar, NavDropdown, Form, FormControl} from 'react-bootstrap';
 import './Navbar.css';
 import { FaLinkedin, FaHome, FaUser, FaSuitcase, FaCommentAlt, FaBell, FaVideo } from 'react-icons/fa';
 import { BsFillGrid3X3GapFill } from 'react-icons/bs'
+import {Link} from 'react-router-dom';
+
 
 
 
@@ -29,8 +31,8 @@ class NavBar extends Component {
                         <Nav.Link className='text-navigation' href="/">
                             <FaHome size={18} />Home</Nav.Link>
 
-                        <Nav.Link className='text-navigation' href='/'>
-                            <FaUser size={18} />Network</Nav.Link>
+                        <Link to={"/network"} className='text-navigation' >
+                            <FaUser size={18} />Network</Link>
 
                         <Nav.Link className='text-navigation'>
                             <FaSuitcase size={18} />Jobs</Nav.Link>
@@ -42,11 +44,11 @@ class NavBar extends Component {
                             <FaBell size={18} />Notifications</Nav.Link>
 
                         <div className="text-navigation navbar-me" id="">
-                            <div id="profile-pic-sm" className="profile-pic-sm">
+                            <div id="profile-pic-sm1" className="profile-pic-sm">
                                 <img id="profile-pic-sm" src="https://image.shutterstock.com/image-vector/profile-blank-icon-empty-photo-260nw-535853269.jpg" alt="Profile pic" />
                             </div>
                             <NavDropdown className='text-navigation' title="Me" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="/me">My</NavDropdown.Item>
+                                <Link to="/username/me" className="ml-4">My Profile</Link>
                                 <NavDropdown.Item href="/">Another action</NavDropdown.Item>
                                 <NavDropdown.Item href="/">Something</NavDropdown.Item>
                                 <NavDropdown.Divider />
