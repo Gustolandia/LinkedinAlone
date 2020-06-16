@@ -1,0 +1,33 @@
+
+  .containers {
+    margin: 10px 48px;
+    font-size: 12px;
+    border-top: 1px solid lightgrey;
+    position: relative;
+    top: 50px;
+  }
+  .containers a {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    text-decoration: none !important;
+  }
+  .containers a:link {
+    color: #485d69;
+  }
+  /* visited link */
+  .containers a:visited {
+    color: #485d69;
+  }
+  /* mouse over link */
+  .containers a:hover {
+    color: #0073b1;
+  }
+  /* selected link */
+  .containers a:active {
+    color: blue;
+  }
+  #privacy {
+    border: none;
+    background-color: #f5f5f5;
+    margin-right: 2px;
+  }
