@@ -32,12 +32,13 @@
     width:100%;
     border-radius: 50%;
     border: 5px solid #dde7f0;
+    object-fit: cover;
 }
 
 .normalElement{
-    padding-top: 0!important;
     background-color: white;
     box-shadow: .5px 1px grey;
+    position: relative;
 
 }
 
@@ -72,4 +73,43 @@
 .spinnerWrapper{
     position:relative;
     top:250px;
+}
+
+#feedMain{ 
+    margin-left: auto;
+    margin-right: auto;
+    width:650px;
+    position:relative;
+    top:50px;
+}
+.network{
+    margin-left: auto;
+    margin-right: auto;
+    width:850px;
+}
+
+.IntroProfile{
+    width:400px;
+    position: absolute;
+    top:65px;
+}
+.IntroProfile2{
+    width:400px;
+    position: fixed;
+    top:0px;
+}
+
+.feedimage{
+    width:50px;
+    height:50px;
+    top:-20px;
+    position: relative;
+}
+.editButton{
+    position: absolute;
+    left:500px;
+    top:15%;
+    border-radius: 50%;
+    border: 5px solid #dde7f0;
+    cursor: pointer;
 }

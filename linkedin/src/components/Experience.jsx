@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Button} from "react-bootstrap";
+import {} from "react-bootstrap";
 import './Profile.css';
 
 
@@ -27,8 +27,6 @@ class ExpSection extends Component {
     
     
     render(){
-        console.log(this.state.data[0])
-        console.log(this.state.username)
         return(
             this.state.data[0]!==undefined?
             <section className="normalElement mt-3">
@@ -36,7 +34,7 @@ class ExpSection extends Component {
                     <h5>Experience</h5>
                     {this.state.data.map(e=>
                     <div className="ml-5 mt-5" key={e._id}>
-                        {e.role==undefined?
+                        {e.role===undefined?
                             <div id="errorMessage">
                                 <div className="spinnerWrapper">
                                     <div className="spinner-border" role="status">
@@ -57,7 +55,7 @@ class ExpSection extends Component {
                 
                 
             :
-            <div id="errorMessage"><h1>No experience!</h1></div>
+            <div></div>
             
                     
         )

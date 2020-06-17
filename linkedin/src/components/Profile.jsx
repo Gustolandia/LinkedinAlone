@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {Button} from "react-bootstrap";
 import './Profile.css';
-import ExpSection from './Experience'
+import ExpSection from './Experience';
 
 
 
@@ -28,11 +28,11 @@ class MainPage extends Component {
     
     
     render(){
-        console.log(this.state.data)
+        console.log(this.state.data.username)
         return(
             this.state.data!=null?
             <div className='my-3' id="mainPage">
-                {this.state.data.name==undefined?
+                {this.state.data.name===undefined?
                     <div id="errorMessage">
                         <div className="spinnerWrapper">
                             <div className="spinner-border" role="status">

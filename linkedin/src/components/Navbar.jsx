@@ -28,10 +28,10 @@ class NavBar extends Component {
                 <div className="navbar_icons" id="icons">
                     
                     <Nav className="icon-navigation">
-                        <Nav.Link className='text-navigation' href="/">
-                            <FaHome size={18} />Home</Nav.Link>
+                        <Link to="/home" className='mx-2 text-navigation'>
+                            <FaHome size={18} />Home</Link>
 
-                        <Link to={"/network"} className='text-navigation' >
+                        <Link to={"/network"} className='mx-2 text-navigation' >
                             <FaUser size={18} />Network</Link>
 
                         <Nav.Link className='text-navigation'>
@@ -43,7 +43,7 @@ class NavBar extends Component {
                         <Nav.Link className='text-navigation'>
                             <FaBell size={18} />Notifications</Nav.Link>
 
-                        <div className="text-navigation navbar-me" id="">
+                        <div className=" mx-2 text-navigation navbar-me pr-4" id="">
                             <div id="profile-pic-sm1" className="profile-pic-sm">
                                 <img id="profile-pic-sm" src="https://image.shutterstock.com/image-vector/profile-blank-icon-empty-photo-260nw-535853269.jpg" alt="Profile pic" />
                             </div>
@@ -56,7 +56,7 @@ class NavBar extends Component {
                             </NavDropdown>
                         </div>
 
-                        <div className="text-navigation">
+                        <div className="mx-2 text-navigation">
                             <BsFillGrid3X3GapFill size={18} />
                             <NavDropdown title="Work" className='text-navigation' id="basic-nav-dropdown">
                                 <NavDropdown.Item href="/">Action</NavDropdown.Item>
