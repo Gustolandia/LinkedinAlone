@@ -17,7 +17,7 @@ function App() {
 
       
           <Navbar />
-          <Route path="/" exact component={Feed} />
+          <Route path="/feed" exact component={Feed} />
           <Route path="/home" exact component={Feed} />
           <Route path="/network" exact component={Network} />
 

@@ -120,3 +120,23 @@
     transform: scale(.9);
     opacity:50%;
 }
+
+.editButton2{
+    position: absolute;
+    left:680px;
+    top:0;
+    border-radius: 50%;
+    border: 5px solid #dde7f0;
+    cursor: pointer;
+}
+.editButton2:hover{
+    opacity:50%;
+}
+.editButton2:active{
+    transform: scale(.9);
+    opacity:50%;
+}
+
+#profile2{
+    position: relative;
+}

@@ -21,7 +21,6 @@ class ExpSection extends Component {
             }
         });
         let received= await object.json();
-        console.log(object)
         this.setState({data:received})
     }
     
