@@ -59,7 +59,7 @@ class Feed extends Component {
                         <div className="normalElement p-5 ml-5 mt-5" key={e._id}>
                             <FeedInfo username={e.username}/>
                             <p>{e.text}  </p>
-                            <div className="editButton"><FaPencilAlt size={25}/></div>
+                            {e.username==="user13" &&<div className="editButton"><FaPencilAlt size={25}/></div>}
                             <p>{e.createdAt}</p>
                         </div>
                         )}

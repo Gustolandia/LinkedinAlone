@@ -113,3 +113,10 @@
     border: 5px solid #dde7f0;
     cursor: pointer;
 }
+.editButton:hover{
+    opacity:50%;
+}
+.editButton:active{
+    transform: scale(.9);
+    opacity:50%;
+}
