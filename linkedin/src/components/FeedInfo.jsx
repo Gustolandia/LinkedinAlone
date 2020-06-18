@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {} from "react-bootstrap";
 import './Profile.css';
+import {Link} from 'react-router-dom';
 
 
 
@@ -39,7 +40,7 @@ class FeedInfo extends Component {
                         }
                     </div>              
                 </div>
-                <div className="col-11"><h5 className="ml-3">{this.state.data.name} {this.state.data.surname}</h5> </div>
+                <div className="col-11"><h5 className="ml-3"><Link to={"/username/"+this.state.username}>{this.state.data.name} {this.state.data.surname}</Link></h5> </div>
                 
             </div>
             :

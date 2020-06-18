@@ -92,6 +92,7 @@
     width:400px;
     position: absolute;
     top:65px;
+
 }
 .IntroProfile2{
     width:400px;
@@ -108,7 +109,7 @@
 .editButton{
     position: absolute;
     left:500px;
-    top:15%;
+    top:40px;
     border-radius: 50%;
     border: 5px solid #dde7f0;
     cursor: pointer;
@@ -140,3 +141,4 @@
 #profile2{
     position: relative;
 }
+
