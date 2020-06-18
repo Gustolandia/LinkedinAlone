@@ -48,6 +48,7 @@ class Feed extends Component {
     
     
     render(){
+        console.log(this.state.data);
         return(
             this.state.data[0]!==undefined?
             (this.state.data[0].username!==undefined && <>
