@@ -40,17 +40,17 @@ class NewFeed extends Component {
             method: "POST",
             body: formData,
             headers:new Headers({
-                "Content-Type": "multipart/form-data",
                 "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
             })
         });
+        let response1=await object1.json();
+        console.log(response1)
 
         if(object.ok){
             this.setState({updated:true, text:"",})
-            this.props.data1(this.state.updated)
-            alert(response.message);}
+            this.props.data1(this.state.updated)}
         else{
-            alert("there is a problem posting", response.message)}
+            alert("there is a problem posting")}
         
     }
     

@@ -56,7 +56,7 @@ class Feed extends Component {
                 <section className="mt-3">
                     <div id="feedMain" className="p-3">
                         <NewFeed data1={this.Data}/>
-                        {this.state.data.sort(function(a, b){return 0.5 - Math.random()}).slice(0, 10).map(e=>
+                        {this.state.data.map(e=>
                         <div className="normalElement p-5 ml-5 mt-5" key={e._id}>
                             <FeedInfo username={e.username}/>
                             <p>{e.text}  </p>
