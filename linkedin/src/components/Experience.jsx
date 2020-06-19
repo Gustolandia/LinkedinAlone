@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import {} from "react-bootstrap";
 import './Profile.css';
+import AddExp from './AddExp';
+
 
 
 class ExpSection extends Component {
@@ -32,18 +34,19 @@ class ExpSection extends Component {
             }
         });
         let received= await object.json();
-        this.setState({data:received})}
+        this.setState({data:received, username:this.props.username,})}
     }
     
     
     render(){
+
         return(
             this.state.data[0]!==undefined?
             <section className="normalElement mt-3">
                 <div className="p-3">
                     <h5>Experience</h5>
                     {this.state.data.map(e=>
-                    <div className="ml-5 mt-5" key={e._id}>
+                    <div className="row ml-5 mt-5" key={e._id}>
                         {e.role===undefined?
                             <div id="errorMessage">
                                 <div className="spinnerWrapper">
@@ -53,14 +56,24 @@ class ExpSection extends Component {
                                 </div>
                             </div>
                         :
-                        <>   
+                        <>
+                        <div className="col-3">
+                            {"image" in this.state.data?
+                            <div className="imageWrapper3 my-1"><img className="profilePic" src={e.image} alt="something went wrong" ></img></div>
+                            :
+                            <div className="imageWrapper3 my-1"><img className="profilePic" src="https://www.audi.com/content/dam/ci/Fundamentals/Basics/Colours/03_Markenfarben_Elemente/Audi_Brandplattform_Colours_Element_02.png" alt="Company pic"/></div>
+
+                        }
+                        </div>
+                        <div className="col-9">
                             <h5>{e.role}</h5>
                             <p>{e.company}, {e.area}</p>
                             <p className="m-0" style={{fontWeight:"normal"}}>{e.description}</p>
-                        </>}
+                        </div></>}
                     </div>
                     )}
                 </div>
+                {(this.state.username==="user13"||this.state.username==="me") && <AddExp username={this.state.username} />} 
             </section>
                 
                 
@@ -70,6 +83,7 @@ class ExpSection extends Component {
                     <h5>Experience</h5>
                     <p>No experience available yet. </p>
                 </div>
+                {(this.state.username==="user13"||this.state.username==="me") && <AddExp username={this.state.username} />}
             </section>
             
                     

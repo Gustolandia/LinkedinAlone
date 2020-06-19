@@ -26,6 +26,14 @@
     margin-right: auto;
 }
 
+.imageWrapper3{
+    height:100px !important;
+    width:100px !important;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .imageWrapperNet{
     height:175px !important;
     width:175px !important;
@@ -143,6 +151,20 @@
     opacity:50%;
 }
 .editButton2:active{
+    transform: scale(.9);
+    opacity:50%;
+}
+
+.editButton3{
+    width:100%;
+    height:50px;
+    border: 5px solid #dde7f0;
+    cursor: pointer;
+}
+.editButton3:hover{
+    opacity:50%;
+}
+.editButton3:active{
     transform: scale(.9);
     opacity:50%;
 }
