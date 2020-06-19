@@ -23,6 +23,17 @@ class ExpSection extends Component {
         let received= await object.json();
         this.setState({data:received})
     }
+    async componentDidUpdate() {
+        if(this.state.username!==this.props.username){
+        let object=await fetch("https://striveschool.herokuapp.com/api/profile/"+this.props.username+"/experiences",{
+            method: "GET",
+            headers:{
+                "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
+            }
+        });
+        let received= await object.json();
+        this.setState({data:received})}
+    }
     
     
     render(){
@@ -54,7 +65,12 @@ class ExpSection extends Component {
                 
                 
             :
-            <div></div>
+            <section className="normalElement mt-3">
+                <div className="p-3">
+                    <h5>Experience</h5>
+                    <p>No experience available yet. </p>
+                </div>
+            </section>
             
                     
         )

@@ -6,7 +6,7 @@
     height: 50px;
     background: rgb(40,62,74);
     display: flex;
-    z-index: 9999;
+    z-index: 5;
     /* justify-content: space-around; */
  }
 
