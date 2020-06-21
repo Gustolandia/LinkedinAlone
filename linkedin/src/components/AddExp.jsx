@@ -33,7 +33,7 @@ class AddExp extends Component {
             description:"",
             role:"",
             company:"",
-            start:null,
+            start:"",
             end:null,
             area:"",
             _id:null,
@@ -62,13 +62,11 @@ class AddExp extends Component {
         this.setState({loading:true,});
         let start=new Date();
         let end=new Date();
-        console.log(start)
-        console.log(this.state.start)
-        start.setFullYear(this.state.start);
-        end.setFullYear(this.state.end);
-        console.log(start)
-        let exp={"role":this.state.role,"description":this.state.description,"company":this.state.company,"start":start.toISOString(),"end":end.toISOString(),"area":this.state.area,};
-        
+        start.setFullYear(String(this.state.start.slice(0,4)),String(this.state.start.slice(5,7)),String(this.state.start.slice(8,10)));
+        if(this.state.end!==null){
+            end.setFullYear(String(this.state.end.slice(0,4)),String(this.state.end.slice(5,7)),String(this.state.end.slice(8,10)));}
+        let exp={"role":this.state.role,"description":this.state.description,"company":this.state.company,"startDate":start.toISOString(),"endDate":end.toISOString(),"area":this.state.area,};
+        console.log(JSON.stringify(exp));
         let formData= new FormData();
         formData.append("experience", this.state.selectedFile);
         let object=await fetch("https://striveschool.herokuapp.com/api/profile/"+this.state.username+"/experiences",{
@@ -94,7 +92,7 @@ class AddExp extends Component {
             console.log(response1)
         }
         if(object1.ok || object.ok){
-            this.setState({updated:true,loading:false, selectedFile:null, _id:response._id})
+            this.setState({updated:true,loading:false, selectedFile:null, _id:response._id, show:false,})
             this.props.data1(this.state.updated)}
         else{
             alert("there is a problem posting")}
