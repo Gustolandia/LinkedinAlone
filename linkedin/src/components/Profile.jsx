@@ -41,7 +41,7 @@ handleShow = () => this.setState({show:true});
                 }
             });
             let received= await object.json();
-            this.setState({data:received, username:this.props.match.params.username, updated:false})
+            this.setState({data:received, username:this.props.match.params.username, updated:false});
     }
     }
     
@@ -108,7 +108,10 @@ handleShow = () => this.setState({show:true});
                                 <p className="m-0" style={{fontWeight:"normal"}} >{this.state.data.bio}</p>
                             </div>
                         </section>
-                        <ExpSection username={this.state.username}/>
+                        {this.state.username=="me"?
+                            <ExpSection username={"user13"}/>
+                            : 
+                            <ExpSection username={this.state.username}/>}
                     </>
                 }
                 
