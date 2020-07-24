@@ -3,7 +3,7 @@ import {Button, Modal} from "react-bootstrap";
 import './Profile.css';
 
 
-// - POST https://striveschool.herokuapp.com/api/profile/{username}/experiences/:expId/picture
+// - POST http://localhost:3004/profile/{username}/experiences/:expId/picture
 // Changes the experience picture (only if username === current user). 
 // Name of the picture in the form-data: experience
 
@@ -69,7 +69,7 @@ class AddExp extends Component {
         console.log(JSON.stringify(exp));
         let formData= new FormData();
         formData.append("experience", this.state.selectedFile);
-        let object=await fetch("https://striveschool.herokuapp.com/api/profile/"+this.state.username+"/experiences",{
+        let object=await fetch("http://localhost:3004/profile/"+this.state.username+"/experiences",{
             method: "POST",
             body: JSON.stringify(exp),
             headers:new Headers({
@@ -77,19 +77,18 @@ class AddExp extends Component {
                 "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
             })
         });
+        console.log('mama')
         let response=await object.json();
         console.log(response);
         let object1={ok:false}
         if (this.state.selectedFile!==null){
-            object1=await fetch("https://striveschool.herokuapp.com/api/profile/"+this.state.username+"/experiences/"+response._id+"/picture",{
+            object1=await fetch("http://localhost:3004/profile/"+this.state.username+"/experiences/"+response._id+"/picture",{
                 method: "POST",
                 body: formData,
                 headers:new Headers({
                     "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
                 })
             });
-            let response1=await object1.json();
-            console.log(response1)
         }
         if(object1.ok || object.ok){
             this.setState({updated:true,loading:false, selectedFile:null, _id:response._id, show:false,})

@@ -3,7 +3,7 @@ import {Button, Modal} from "react-bootstrap";
 import './Profile.css';
 import { FaPencilAlt } from 'react-icons/fa';
 
-//  - POST https://striveschool.herokuapp.com/api/profile/{username}/picture
+//  - POST http://localhost:3004/profile/{username}/picture
 //     Replaces user profile picture.
 //     Name of the picture in the form-data: profile
 
@@ -57,7 +57,7 @@ class EditProfile extends Component {
         let text={"name":this.state.name, "surname":this.state.surname, "bio":this.state.bio,"email":this.state.email, "title":this.state.title, "area":this.state.area};
         let formData= new FormData();
         formData.append("profile", this.state.newFile);
-        let object=await fetch("https://striveschool.herokuapp.com/api/profile/",{
+        let object=await fetch("http://localhost:3004/profile/",{
             method: "PUT",
             body: JSON.stringify(text),
             headers:new Headers({
@@ -67,7 +67,7 @@ class EditProfile extends Component {
         });
         let object1={ok:false}
         if (this.state.newFile!==null){
-            object1=await fetch("https://striveschool.herokuapp.com/api/profile/"+this.state.username+"/picture",{
+            object1=await fetch("http://localhost:3004/profile/"+this.state.username+"/picture",{
                 method: "POST",
                 body: formData,
                 headers:new Headers({

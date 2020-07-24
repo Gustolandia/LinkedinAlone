@@ -17,7 +17,7 @@ class ExpSection extends Component {
     Data=()=>{this.setState({updated:true,})}
 
     async componentDidMount() {
-        let object=await fetch("https://striveschool.herokuapp.com/api/profile/"+this.state.username+"/experiences",{
+        let object=await fetch("http://localhost:3004/profile/"+this.state.username+"/experiences",{
             method: "GET",
             headers:{
                 "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
@@ -26,9 +26,10 @@ class ExpSection extends Component {
         let received= await object.json();
         this.setState({data:received})
     }
+    
     async componentDidUpdate() {
         if(this.state.username!==this.props.username || this.state.updated){
-        let object=await fetch("https://striveschool.herokuapp.com/api/profile/"+this.props.username+"/experiences",{
+        let object=await fetch("http://localhost:3004/profile/"+this.props.username+"/experiences",{
             method: "GET",
             headers:{
                 "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),

@@ -7,7 +7,7 @@ class Viewed extends Component {
       details:[]
     }
      componentDidMount = async () => {
-        let response = await fetch("https://striveschool.herokuapp.com/api/profile/" , {
+        let response = await fetch("http://localhost:3004/profile/" , {
             method:"GET",
             headers:new Headers({
                 "content-type":"application/json",

@@ -21,13 +21,15 @@ class Feed extends Component {
 
     async componentDidMount() {
 
-        let object=await fetch("https://striveschool.herokuapp.com/api/posts/",{
+        let object=await fetch("http://localhost:3004/posts/",{
             method: "GET",
             headers:{
                 "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
             }
         });
         let received= await object.json();
+        console.log(received)
+
         this.setState({data:received})
 
     }
@@ -36,13 +38,14 @@ class Feed extends Component {
 
     async componentDidUpdate() {
         if(this.state.updated===true){
-            let object=await fetch("https://striveschool.herokuapp.com/api/posts/",{
+            let object=await fetch("http://localhost:3004/posts/",{
                 method: "GET",
                 headers:{
                     "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
                 }
                 });
             let received= await object.json();
+            console.log(received)
             this.setState({data:received,updated:false,})
         }
     }
@@ -51,7 +54,8 @@ class Feed extends Component {
     render(){
         return(
             this.state.data[0]!==undefined?
-            (this.state.data[0].username!==undefined && <>
+            (this.state.data[0].username!==undefined &&
+            <>
                 <IntroProfile/>
                 <section className="mt-3">
                     <div id="feedMain" className="p-3">

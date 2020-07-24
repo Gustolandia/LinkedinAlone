@@ -16,14 +16,15 @@ class FeedInfo extends Component {
 
     async componentDidMount() {
 
-        let object=await fetch("https://striveschool.herokuapp.com/api/profile/"+this.state.username,{
+        let object=await fetch("http://localhost:3004/profile/"+this.state.username,{
             method: "GET",
             headers:{
                 "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
             }
         });
         let received= await object.json();
-        this.setState({data:received})
+        console.log(received)
+        this.setState({data:received[0]})
     }
     
     

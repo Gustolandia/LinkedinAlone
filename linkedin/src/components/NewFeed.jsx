@@ -27,7 +27,7 @@ class NewFeed extends Component {
         formData.append("post", this.state.selectedFile);
         console.log(formData);
         console.log(this.state.selectedFile);
-        let object=await fetch("https://striveschool.herokuapp.com/api/posts/",{
+        let object=await fetch("http://localhost:3004/posts/",{
             method: "POST",
             body: JSON.stringify(text),
             headers:new Headers({
@@ -37,15 +37,13 @@ class NewFeed extends Component {
         });
         let response=await object.json();
 
-        let object1=await fetch("https://striveschool.herokuapp.com/api/posts/"+response._id,{
+        let object1=await fetch("http://localhost:3004/posts/"+response._id+"/picture",{
             method: "POST",
             body: formData,
             headers:new Headers({
                 "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
             })
         });
-        let response1=await object1.json();
-        console.log(response1)
 
         if(object1.ok){
             this.setState({updated:true, text:"", loading:false, selectedFile:null,})

@@ -27,14 +27,15 @@ class IntroProfile extends Component {
 
     async componentDidMount() {
         window.addEventListener('scroll', this.handleScroll);
-        let object=await fetch("https://striveschool.herokuapp.com/api/profile/me",{
+        let object=await fetch("http://localhost:3004/profile/me",{
             method: "GET",
             headers:{
                 "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
             }
         });
         let received= await object.json();
-        this.setState({data:received})
+        console.log(received)
+        this.setState({data:received[0]})
     }
     
     

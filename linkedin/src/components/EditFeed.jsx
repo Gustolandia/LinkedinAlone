@@ -32,7 +32,7 @@ class EditFeed extends Component {
         let text={"text":this.state.text,};
         let formData= new FormData();
         formData.append("post", this.state.newFile);
-        let object=await fetch("https://striveschool.herokuapp.com/api/posts/"+this.state._id,{
+        let object=await fetch("http://localhost:3004/posts/"+this.state._id,{
             method: "PUT",
             body: JSON.stringify(text),
             headers:new Headers({
@@ -42,7 +42,7 @@ class EditFeed extends Component {
         });
         let object1={ok:false}
         if (this.state.newFile!==null){
-            object1=await fetch("https://striveschool.herokuapp.com/api/posts/"+this.state._id,{
+            object1=await fetch("http://localhost:3004/posts/"+this.state._id+"/picture",{
                 method: "POST",
                 body: formData,
                 headers:new Headers({
@@ -60,7 +60,7 @@ class EditFeed extends Component {
         
     }
     async handleDelete(e2){
-        let object2=await fetch("https://striveschool.herokuapp.com/api/posts/"+this.state._id,{
+        let object2=await fetch("http://localhost:3004/posts/"+this.state._id,{
             method: "DELETE",
             headers:new Headers({
                 "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
