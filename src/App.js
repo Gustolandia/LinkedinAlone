@@ -7,6 +7,8 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Network from './components/Network';
 import Feed from './components/Feed';
+import Create from './components/Create';
+
 
 
 
@@ -21,7 +23,7 @@ function App() {
           <Route path="/feed" exact component={Feed} />
           <Route path="/home" exact component={Feed} />
           <Route path="/network" exact component={Network} />
-
+          <Route path="/create" exact component={Create} />
           <Route path="/username/:username" exact component={MainPage} />
 
 

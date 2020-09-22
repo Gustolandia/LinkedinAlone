@@ -1,0 +1,10 @@
+.logon{
+    position: absolute;
+    top: 15%;
+  
+    left:25%;
+    width:50%;
+    background-color: #f5f5f5;
+    box-shadow: .5px 1px grey;
+    text-align: center;
+}

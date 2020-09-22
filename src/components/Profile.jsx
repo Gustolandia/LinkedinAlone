@@ -3,6 +3,8 @@ import {Button, Modal} from "react-bootstrap";
 import './Profile.css';
 import ExpSection from './Experience';
 import EditProfile from './EditProfile';
+import Login from './Login';
+
 
 
 
@@ -47,7 +49,7 @@ handleShow = () => this.setState({show:true});
     
     render(){
         return(
-            this.state.data!=null?
+            localStorage.getItem("accessToken")?(this.state.data!=null?
             <div className='my-3' id="mainPage">
                 {this.state.data.name===undefined?
                     <div id="errorMessage"> 
@@ -117,7 +119,9 @@ handleShow = () => this.setState({show:true});
                 
             </div>
             :
-            <div id="errorMessage"><h1>Invalid Profile!</h1></div>
+            <div id="errorMessage"><h1>Invalid Profile!</h1></div>)
+            :
+            <Login/>
             
                     
         )

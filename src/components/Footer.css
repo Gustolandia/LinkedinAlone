@@ -3,8 +3,8 @@
     margin: 10px 48px;
     font-size: 12px;
     border-top: 1px solid lightgrey;
-    position: relative;
-    top: 50px;
+    position: fixed;
+    bottom: 0px;
   }
   .containers a {
     margin-top: 4px;

@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import {Card} from "react-bootstrap";
 import './Profile.css';
 import {Link} from 'react-router-dom';
+import Login from './Login';
+
 
 
 
@@ -31,7 +33,7 @@ class Network extends Component {
     
     render(){
         return(
-            this.state.data[0]!==undefined?
+            localStorage.getItem("accessToken")?(this.state.data[0]!==undefined?
             <div className='network my-5'>
                 <div className="row m-5">
                     {this.state.data.sort(function(a, b){return 0.5 - Math.random()}).map(e=>
@@ -66,7 +68,9 @@ class Network extends Component {
                         <span className="sr-only">Loading...</span>
                     </div>
                 </div>
-          </div>
+          </div>)
+          :
+            <Login/>
             
                     
         )

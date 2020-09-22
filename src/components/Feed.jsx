@@ -6,7 +6,7 @@ import NewFeed from './NewFeed';
 import IntroProfile from './IntroProfile';
 
 import EditFeed from './EditFeed';
-
+import Login from './Login';
 
 
 class Feed extends Component {
@@ -53,7 +53,7 @@ class Feed extends Component {
     
     render(){
         return(
-            this.state.data[0]!==undefined?
+            localStorage.getItem("accessToken")?(this.state.data[0]!==undefined?
             (this.state.data[0].username!==undefined &&
             <>
                 <IntroProfile/>
@@ -82,7 +82,9 @@ class Feed extends Component {
                     </div>
                 </div>
             
-            </div>
+            </div>)
+            :
+            <Login/>
             
                     
         )
