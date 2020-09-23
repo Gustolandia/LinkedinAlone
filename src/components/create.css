@@ -8,3 +8,11 @@
     box-shadow: .5px 1px grey;
     text-align: center;
 }
+
+.logon input:invalid:focus{
+    background-color: crimson;
+}
+
+.logon input:focus{
+    background-color: darkgreen;
+}

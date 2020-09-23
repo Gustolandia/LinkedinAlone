@@ -52,6 +52,7 @@ export default class Login extends Component {
         } else{
         return (
             <section className="logon mt-3">
+                <p>All sections must have at least 7 characters</p>
                 <label className="mb-0 w-75 ml-3">Email:</label>
                     <input minlength="7" id="email" type="email" className="w-75 h-100 my-1 mb-2" placeholder="Your Email." value={this.state.email} onChange={(e)=>this.updateEmail(e)}></input>
                 <label className="mb-0 w-75">Password:</label>
