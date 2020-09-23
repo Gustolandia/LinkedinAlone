@@ -15,20 +15,20 @@ class Feed extends Component {
         this.state = { 
             username:"",
             data:{},
-            updated:false,
+            updated:true,
+            updated2:true,
         };
     }
 
     async componentDidMount() {
 
-        let object=await fetch("http://localhost:3004/posts/",{
+        let object=await fetch(`${process.env.REACT_APP_API_URL}/posts/`,{
             method: "GET",
             headers:{
-                "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
+                "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
             }
         });
         let received= await object.json();
-        console.log(received)
 
         this.setState({data:received})
 
@@ -38,15 +38,14 @@ class Feed extends Component {
 
     async componentDidUpdate() {
         if(this.state.updated===true){
-            let object=await fetch("http://localhost:3004/posts/",{
+            let object=await fetch(`${process.env.REACT_APP_API_URL}/posts/`,{
                 method: "GET",
                 headers:{
-                    "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
+                    "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
                 }
                 });
             let received= await object.json();
-            console.log(received)
-            this.setState({data:received,updated:false,})
+            this.setState({data:received,updated:false,updated2:false,})
         }
     }
     
@@ -64,7 +63,7 @@ class Feed extends Component {
                         <div className="normalElement p-5 ml-5 mt-5" key={e._id}>
                             <FeedInfo username={e.username}/>
                             <p>{e.text}  </p>
-                            {e.username==="user13" && <>{"image" in e? <EditFeed data1={this.Data} _id={e._id} text={e.text} selectedFile={e.image}/> :<EditFeed data1={this.Data} _id={e._id} text={e.text} selectedFile={null}/>} </>}
+                            {e.username===localStorage.getItem("username") && <>{"image" in e? <EditFeed data1={this.Data} _id={e._id} text={e.text} selectedFile={e.image}/> :<EditFeed data1={this.Data} _id={e._id} text={e.text} selectedFile={null}/>} </>}
                             {"image" in e &&<div> <img className="w-100 h-100" src={e.image} alt="No upload"></img></div>}
                             <p>{e.createdAt}</p>
                         </div>
@@ -84,7 +83,7 @@ class Feed extends Component {
             
             </div>)
             :
-            <Login/>
+            <Login data1={this.Data}/>
             
                     
         )

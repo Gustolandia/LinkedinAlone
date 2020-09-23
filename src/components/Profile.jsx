@@ -25,10 +25,11 @@ handleClose = () => this.setState({show:false});
 handleShow = () => this.setState({show:true});
 
     async componentDidMount() {
-        let object=await fetch("http://localhost:3004/profile/"+this.state.username,{
+        let object=await fetch(`${process.env.REACT_APP_API_URL}/profile/`+this.state.username,{
             method: "GET",
             headers:{
-                "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
+                "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
+                "user":localStorage.getItem("username"),
             }
         });
         let received= await object.json();
@@ -36,10 +37,11 @@ handleShow = () => this.setState({show:true});
     }
     async componentDidUpdate() {
         if(this.props.match.params.username!==this.state.username || this.state.updated){
-            let object=await fetch("http://localhost:3004/profile/"+this.props.match.params.username,{
+            let object=await fetch(`${process.env.REACT_APP_API_URL}/profile/`+this.props.match.params.username,{
                 method: "GET",
                 headers:{
-                    "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
+                    "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
+                    "user":localStorage.getItem("username"),
                 }
             });
             let received= await object.json();
@@ -94,7 +96,7 @@ handleShow = () => this.setState({show:true});
                             </div>
                             <div id="profile2">
                                 <h3 className="ml-3">{this.state.data.name+" "+this.state.data.surname}</h3>
-                                {this.state.data.username==="user13" && 
+                                {this.state.data.username===localStorage.getItem("username") && 
                                 <>{"image" in this.state.data? 
                                 <EditProfile data1={this.Data} selectedFile={this.state.data.image} username={this.state.data.username} bio={this.state.data.bio} name={this.state.data.name} surname={this.state.data.surname} email={this.state.data.email} title={this.state.data.title} area={this.state.data.area}/>
                                 : 
@@ -110,8 +112,8 @@ handleShow = () => this.setState({show:true});
                                 <p className="m-0" style={{fontWeight:"normal"}} >{this.state.data.bio}</p>
                             </div>
                         </section>
-                        {this.state.username=="me"?
-                            <ExpSection username={"user13"}/>
+                        {this.state.username==="me"?
+                            <ExpSection username={localStorage.getItem("username")}/>
                             : 
                             <ExpSection username={this.state.username}/>}
                     </>

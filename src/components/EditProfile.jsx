@@ -57,25 +57,26 @@ class EditProfile extends Component {
         let text={"name":this.state.name, "surname":this.state.surname, "bio":this.state.bio,"email":this.state.email, "title":this.state.title, "area":this.state.area};
         let formData= new FormData();
         formData.append("profile", this.state.newFile);
-        let object=await fetch("http://localhost:3004/profile/",{
+        let object=await fetch(`${process.env.REACT_APP_API_URL}/profile/`,{
             method: "PUT",
             body: JSON.stringify(text),
             headers:new Headers({
                 "Content-Type": "application/json",
-                "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
+                "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
+                "user":localStorage.getItem("username"),
             })
         });
         let object1={ok:false}
         if (this.state.newFile!==null){
-            object1=await fetch("http://localhost:3004/profile/"+this.state.username+"/picture",{
+            object1=await fetch(`${process.env.REACT_APP_API_URL}/profile/`+this.state.username+"/picture",{
                 method: "POST",
                 body: formData,
                 headers:new Headers({
-                    "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
+                    "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
+                    "user":localStorage.getItem("username"),
                 })
             });
-            let response1=await object1.json();
-            console.log(response1)
+            console.log(object1)
         }
         if(object1.ok || object.ok){
             this.setState({updated:true,loading:false, newFile:null,})

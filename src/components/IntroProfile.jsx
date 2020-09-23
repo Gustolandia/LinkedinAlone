@@ -27,10 +27,11 @@ class IntroProfile extends Component {
 
     async componentDidMount() {
         window.addEventListener('scroll', this.handleScroll);
-        let object=await fetch("http://localhost:3004/profile/me",{
+        let object=await fetch(`${process.env.REACT_APP_API_URL}/profile/me`,{
             method: "GET",
             headers:{
-                "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
+                "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
+                "user":localStorage.getItem("username"),
             }
         });
         let received= await object.json();

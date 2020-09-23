@@ -17,10 +17,10 @@ class ExpSection extends Component {
     Data=()=>{this.setState({updated:true,})}
 
     async componentDidMount() {
-        let object=await fetch("http://localhost:3004/profile/"+this.state.username+"/experiences",{
+        let object=await fetch(`${process.env.REACT_APP_API_URL}/profile/`+this.state.username+"/experiences",{
             method: "GET",
             headers:{
-                "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
+                "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
             }
         });
         let received= await object.json();
@@ -29,10 +29,10 @@ class ExpSection extends Component {
     
     async componentDidUpdate() {
         if(this.state.username!==this.props.username || this.state.updated){
-        let object=await fetch("http://localhost:3004/profile/"+this.props.username+"/experiences",{
+        let object=await fetch(`${process.env.REACT_APP_API_URL}/profile/`+this.props.username+"/experiences",{
             method: "GET",
             headers:{
-                "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
+                "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
             }
         });
         let received= await object.json();
@@ -74,7 +74,7 @@ class ExpSection extends Component {
                     </div>
                     )}
                 </div>
-                {(this.state.username==="user13"||this.state.username==="me") && <AddExp username={this.state.username} data1={this.Data}/>} 
+                {(this.state.username===localStorage.getItem("username")||this.state.username==="me") && <AddExp username={this.state.username} data1={this.Data}/>} 
             </section>
                 
                 
@@ -84,7 +84,7 @@ class ExpSection extends Component {
                     <h5>Experience</h5>
                     <p>No experience available yet. </p>
                 </div>
-                {(this.state.username==="user13"||this.state.username==="me") && <AddExp username={this.state.username} />}
+                {(this.state.username===localStorage.getItem("username")||this.state.username==="me") && <AddExp username={this.state.username} />}
             </section>
             
                     

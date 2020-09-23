@@ -69,12 +69,12 @@ class AddExp extends Component {
         console.log(JSON.stringify(exp));
         let formData= new FormData();
         formData.append("experience", this.state.selectedFile);
-        let object=await fetch("http://localhost:3004/profile/"+this.state.username+"/experiences",{
+        let object=await fetch(`${process.env.REACT_APP_API_URL}/profile/`+this.state.username+`/experiences`,{
             method: "POST",
             body: JSON.stringify(exp),
             headers:new Headers({
                 "Content-Type": "application/json",
-                "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
+                "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
             })
         });
         console.log('mama')
@@ -82,11 +82,11 @@ class AddExp extends Component {
         console.log(response);
         let object1={ok:false}
         if (this.state.selectedFile!==null){
-            object1=await fetch("http://localhost:3004/profile/"+this.state.username+"/experiences/"+response._id+"/picture",{
+            object1=await fetch(`${process.env.REACT_APP_API_URL}/profile/`+this.state.username+`/experiences/`+response._id+`/picture`,{
                 method: "POST",
                 body: formData,
                 headers:new Headers({
-                    "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
+                    "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
                 })
             });
         }

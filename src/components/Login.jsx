@@ -10,6 +10,8 @@ export default class Login extends Component {
         this.state = { 
             email:"",
             password:"",
+            loggedin:false,
+            updated2:false,
         };
     }
 
@@ -32,6 +34,9 @@ export default class Login extends Component {
           const json = await res.json()
           localStorage.setItem("accessToken", json.token)
           localStorage.setItem("refreshToken", json.refreshToken)
+          localStorage.setItem("username", this.state.email)
+          this.setState({loggedin:true, updated2:true,})
+          this.props.data1(this.state.updated2)
         }
       }
     

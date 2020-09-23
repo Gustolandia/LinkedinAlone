@@ -19,10 +19,11 @@ class Network extends Component {
 
     async componentDidMount() {
 
-        let object=await fetch("http://localhost:3004/profile/",{
+        let object=await fetch(`${process.env.REACT_APP_API_URL}/profile/`,{
             method: "GET",
             headers:{
-                "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
+                "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
+                "user":localStorage.getItem("username"),
             }
         });
         let received= await object.json();

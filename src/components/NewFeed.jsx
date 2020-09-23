@@ -8,7 +8,7 @@ class NewFeed extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            username:"",
+            username:localStorage.getItem("username"),
             data:{},
             text:"",
             updated:false,
@@ -27,24 +27,24 @@ class NewFeed extends Component {
         formData.append("post", this.state.selectedFile);
         console.log(formData);
         console.log(this.state.selectedFile);
-        let object=await fetch("http://localhost:3004/posts/",{
+        let object=await fetch(`${process.env.REACT_APP_API_URL}/posts/`+this.state.username,{
             method: "POST",
             body: JSON.stringify(text),
             headers:new Headers({
                 "Content-Type": "application/json",
-                "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
+                "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
             })
         });
         let response=await object.json();
 
-        let object1=await fetch("http://localhost:3004/posts/"+response._id+"/picture",{
+        let object1=await fetch(`${process.env.REACT_APP_API_URL}/posts/`+response._id+"/picture",{
             method: "POST",
             body: formData,
             headers:new Headers({
-                "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
+                "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
             })
         });
-
+        
         if(object1.ok){
             this.setState({updated:true, text:"", loading:false, selectedFile:null,})
             this.props.data1(this.state.updated)}

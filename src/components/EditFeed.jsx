@@ -32,26 +32,26 @@ class EditFeed extends Component {
         let text={"text":this.state.text,};
         let formData= new FormData();
         formData.append("post", this.state.newFile);
-        let object=await fetch("http://localhost:3004/posts/"+this.state._id,{
+        let object=await fetch(`${process.env.REACT_APP_API_URL}/posts/`+this.state._id,{
             method: "PUT",
             body: JSON.stringify(text),
             headers:new Headers({
                 "Content-Type": "application/json",
-                "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
+                "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
             })
         });
         let object1={ok:false}
         if (this.state.newFile!==null){
-            object1=await fetch("http://localhost:3004/posts/"+this.state._id+"/picture",{
+            object1=await fetch(`${process.env.REACT_APP_API_URL}/posts/`+this.state._id+`/picture`,{
                 method: "POST",
                 body: formData,
                 headers:new Headers({
-                    "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
+                    "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
                 })
             });
-            let response1=await object1.json();
-            console.log(response1)
+
         }
+
         if(object1.ok || object.ok){
             this.setState({updated:true,loading:false, newFile:null,})
             this.props.data1(this.state.updated)}
@@ -60,10 +60,10 @@ class EditFeed extends Component {
         
     }
     async handleDelete(e2){
-        let object2=await fetch("http://localhost:3004/posts/"+this.state._id,{
+        let object2=await fetch(`${process.env.REACT_APP_API_URL}/posts/`+this.state._id,{
             method: "DELETE",
             headers:new Headers({
-                "Authorization": "Basic "+btoa("user13:6c#k#ANpA&k^s3t2"),
+                "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
             })
         });
         if(object2.ok){
