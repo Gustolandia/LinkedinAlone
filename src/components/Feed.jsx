@@ -28,6 +28,7 @@ class Feed extends Component {
                 "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
             }
         });
+        console.log(object);
         let received= await object.json();
 
         this.setState({data:received})
@@ -44,6 +45,7 @@ class Feed extends Component {
                     "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
                 }
                 });
+                console.log(object);
             let received= await object.json();
             this.setState({data:received,updated:false,updated2:false,})
         }
