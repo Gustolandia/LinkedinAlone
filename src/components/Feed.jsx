@@ -29,9 +29,16 @@ class Feed extends Component {
             }
         });
         console.log(object);
-        let received= await object.json();
-        console.log(received);
-        this.setState({data:received})
+        if (object.status!==401){
+            let received= await object.json();
+            console.log(received);
+            this.setState({data:received})
+        }else{
+            this.setState({data:{error:401}});
+            console.log(this.state.data,this.state.data.error);
+        }
+            
+        
 
     }
 
@@ -54,7 +61,7 @@ class Feed extends Component {
     
     render(){
         return(
-            localStorage.getItem("accessToken")?(this.state.data[0]!==undefined?
+            localStorage.getItem("accessToken") &&(this.state.data.error!==401)?(this.state.data[0]!==undefined?
             (this.state.data[0].username!==undefined &&
             <>
                 <IntroProfile/>
