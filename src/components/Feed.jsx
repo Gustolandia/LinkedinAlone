@@ -30,7 +30,7 @@ class Feed extends Component {
         });
         console.log(object);
         let received= await object.json();
-
+        console.log(received);
         this.setState({data:received})
 
     }
