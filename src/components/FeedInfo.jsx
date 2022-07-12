@@ -23,7 +23,6 @@ class FeedInfo extends Component {
             }
         });
         let received= await object.json();
-        console.log(received)
         this.setState({data:received[0]})
     }
     

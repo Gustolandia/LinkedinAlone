@@ -28,14 +28,12 @@ class Feed extends Component {
                 "Authorization": `Bearer ${localStorage.getItem("accessToken")}`,
             }
         });
-        console.log(object);
+
         if (object.status!==401){
             let received= await object.json();
-            console.log(received);
-            this.setState({data:received})
+            this.setState({data:received});
         }else{
             this.setState({data:{error:401}});
-            console.log(this.state.data,this.state.data.error);
         }
             
         
