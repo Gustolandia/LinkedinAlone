@@ -1,4 +1,14 @@
 {
+  "scripts": {
+    "edgio:dev": "edgio dev",
+    "edgio:build": "edgio build",
+    "edgio:deploy": "edgio deploy",
+    "dev": "react-scripts start",
+    "start": "serve -s build",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "name": "linkedin",
   "version": "0.1.0",
   "private": true,
@@ -17,13 +27,6 @@
     "react-scripts": "^3.4.3",
     "serve": "^11.3.2"
   },
-  "scripts": {
-    "dev": "react-scripts start",
-    "start": "serve -s build",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -38,5 +41,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@edgio/cli": "^7.4.0",
+    "@edgio/core": "^7.4.0",
+    "@edgio/devtools": "^7.4.0",
+    "@edgio/prefetch": "^7.4.0",
+    "@edgio/react-cra": "^7.4.0"
   }
 }
