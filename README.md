@@ -20,8 +20,8 @@ This project is a clone of LinkedIn, focusing on the frontend aspects developed 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourgithubusername/linkedin-clone-frontend.git
-cd linkedin-clone-frontend
+git clone https://github.com/Gustolandia/LinkedinAlone.git
+cd LinkedinAlone
 ```
 
 2. Install the dependencies:
