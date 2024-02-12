@@ -1,68 +1,113 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# LinkedIn Clone Frontend
 
-## Available Scripts
+This project is a clone of LinkedIn, focusing on the frontend aspects developed with React. It features authentication/registration, a feed of posts with images, and user experience enhancements similar to the original LinkedIn platform.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Authentication/Registration:** Secure login and signup functionality for users.
+- **Feed Posts:** Users can view a feed of posts, including images, mimicking the LinkedIn experience.
+- **User Experience:** Tailored UI/UX with responsive design for a seamless experience across devices.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Getting Started
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Prerequisites
 
-### `npm test`
+- Node.js (v16.1 or higher recommended)
+- npm (comes with Node.js)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installation
 
-### `npm run build`
+1. Clone the repository:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+git clone https://github.com/yourgithubusername/linkedin-clone-frontend.git
+cd linkedin-clone-frontend
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+2. Install the dependencies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm install
+```
 
-### `npm run eject`
+3. Set up the environment variables:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Create a `.env` file in the root of your project and add the following line to it, replacing the value with the actual URL of your backend API if different:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```plaintext
+REACT_APP_API_URL="https://gustavo-pedro-ricou-linkedin-backend-default.glb.edgio.link"
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This will ensure that your React application can communicate with the backend service effectively.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Running the Application Locally
 
-## Learn More
+To run the application on your local machine, follow these steps:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Start the development server:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm run dev
+```
 
-### Code Splitting
+This command will start the local development server provided by the `react-scripts` package. You should see the application open in your default web browser. If it doesn't open automatically, you can visit `http://localhost:3000` in your browser to view the application.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Building for Production
 
-### Analyzing the Bundle Size
+When you're ready to build a production version of your application, run:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```bash
+npm run build
+```
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+This command will create a build directory with a production build of your app. Inside the build directory, you'll find all the static files optimized for deployment.
 
 ### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+After building your application, you can deploy it using Edgio by running the following command:
 
-### `npm run build` fails to minify
+```bash
+npm run edgio:deploy
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This will deploy your production build to the Edgio network, ensuring fast delivery and high availability across the globe. Make sure you have configured your Edgio project settings accordingly.
+
+## Scripts Explained
+
+In the `package.json`, you will find several scripts that you can use:
+
+- `edgio:dev`: Starts the local development server using Edgio for testing Edge-side functionalities.
+- `edgio:build`: Builds your application with Edgio optimizations for production.
+- `edgio:deploy`: Deploys your build to Edgio, making it accessible online.
+- `dev`: Alias for `react-scripts start`, starts the React development server.
+- `start`: Serves your build directory on a local static server.
+- `build`: Creates an optimized production build of your React app.
+- `test`: Runs the test watcher in an interactive mode.
+- `eject`: Removes the single build dependency from your project.
+
+## Technologies Used
+
+- React for the frontend framework.
+- Bootstrap and React Bootstrap for styling and components.
+- React Router for navigation and routing.
+- Edgio for deployment and edge-side enhancements.
+
+## Contributing
+
+Contributions are welcome! Please read the CONTRIBUTING.md for guidelines on how to submit contributions to this project.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Thanks to everyone who has contributed to this project!
+- Special thanks to the React community for providing such a powerful and flexible framework.
+
+---
+
+For more information on how to use React and Edgio, please refer to their respective documentation.
+
+
+
