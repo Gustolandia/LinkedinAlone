@@ -94,7 +94,7 @@ In the `package.json`, you will find several scripts that you can use:
 
 ## Contributing
 
-Contributions are welcome! Please read the CONTRIBUTING.md for guidelines on how to submit contributions to this project.
+Contributions are welcome!
 
 ## License
 
